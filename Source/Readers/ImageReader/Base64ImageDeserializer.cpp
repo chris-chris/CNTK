@@ -166,7 +166,7 @@ namespace Microsoft { namespace MSR { namespace CNTK {
             const auto& chunk = index.Chunks()[i];
             auto c = std::make_shared<ChunkDescription>();
             c->m_id = i;
-            assert(chunk.m_numberOfSamples == chunk.m_numberOfSequences);
+            assert(chunk.NumSamples() == chunk.Sequences().size());
             c->m_numberOfSamples = c->m_numberOfSequences = chunk.Sequences().size() * sequencesPerInitialSequence;
             result.push_back(c);
         }
